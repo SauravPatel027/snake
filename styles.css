@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4CAF50, #2196F3); /* Adjust colors as needed */
+}
+
+.container {
+    display: flex;
+}
+
+#game-board {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+}
+
+.score-column {
+    margin-left: 20px;
+}
+
+.dot {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: #000;
+}
+
+.apple {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: #f00;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+#score-display {
+    font-size: 20px;
+}
+
+#final-score {
+    font-size: 18px;
+}
+
+#modal-score {
+    font-weight: bold;
+    font-size: 24px;
+}
