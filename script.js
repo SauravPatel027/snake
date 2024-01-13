@@ -19,19 +19,27 @@ function togglePause() {
     }
 }
 gameBoard.addEventListener('touchstart', function(event) {
+  event.preventDefault(); // Prevent default browser behavior
+
   const touchX = event.touches[0].clientX - gameBoard.offsetLeft;
   const touchY = event.touches[0].clientY - gameBoard.offsetTop;
 
-  if (touchX < snake[0].left) {
-    direction = 'left';
-  } else if (touchX > snake[0].left + snake[0].width) {
+  const snakeHead = snake[0];
+  const halfSnakeWidth = snakeHead.width / 2;
+  const halfSnakeHeight = snakeHead.height / 2;
+
+  // More forgiving touch zones for right and bottom turns:
+  if (touchX > snakeHead.left + halfSnakeWidth) {
     direction = 'right';
-  } else if (touchY < snake[0].top) {
-    direction = 'up';
-  } else if (touchY > snake[0].top + snake[0].height) {
+  } else if (touchY > snakeHead.top + halfSnakeHeight) {
     direction = 'down';
+  } else if (touchX < snakeHead.left) {
+    direction = 'left';
+  } else if (touchY < snakeHead.top) {
+    direction = 'up';
   }
 });
+
 pauseButton.onclick = togglePause;
 restartButton.onclick = resetGame;
 restartButtonModal.onclick = resetGame;
