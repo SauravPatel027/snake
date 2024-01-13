@@ -18,27 +18,16 @@ function togglePause() {
         pauseButton.textContent = 'Pause Game';
     }
 }
-gameBoard.addEventListener('touchstart', function(event) {
-  event.preventDefault(); // Prevent default browser behavior
+const upButton = document.querySelector('.arrow-button.up');
+const downButton = document.querySelector('.arrow-button.down');
+const leftButton = document.querySelector('.arrow-button.left');
+const rightButton = document.querySelector('.arrow-button.right');
 
-  const touchX = event.touches[0].clientX - gameBoard.offsetLeft;
-  const touchY = event.touches[0].clientY - gameBoard.offsetTop;
+upButton.addEventListener('click', () => direction = 'up');
+downButton.addEventListener('click', () => direction = 'down');
+leftButton.addEventListener('click', () => direction = 'left');
+rightButton.addEventListener('click', () => direction = 'right');
 
-  const snakeHead = snake[0];
-  const halfSnakeWidth = snakeHead.width / 2;
-  const halfSnakeHeight = snakeHead.height / 2;
-
-  // More forgiving touch zones for right and bottom turns:
-  if (touchX > snakeHead.left + halfSnakeWidth) {
-    direction = 'right';
-  } else if (touchY > snakeHead.top + halfSnakeHeight) {
-    direction = 'down';
-  } else if (touchX < snakeHead.left) {
-    direction = 'left';
-  } else if (touchY < snakeHead.top) {
-    direction = 'up';
-  }
-});
 
 pauseButton.onclick = togglePause;
 restartButton.onclick = resetGame;
