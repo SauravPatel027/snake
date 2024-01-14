@@ -37,7 +37,7 @@ scoreDisplay.id = 'score-display';
 gameBoard.appendChild(scoreDisplay);
 var score = 0;
 var gameOverModal = document.getElementById('game-over-modal');
-var speed = 500; // Initial speed
+var speed = 5000; // Initial speed
 
 function resetGame() {
     snake = [{ top: 200, left: 200 }];
