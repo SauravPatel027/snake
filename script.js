@@ -62,17 +62,17 @@ function alertScore() {
     alertBox.textContent = 'Score: ' + score;
     alertBox.style.position = 'fixed';
     alertBox.style.left = '50%';
-    alertBox.style.top = '50%';
+    alertBox.style.bottom = '0'; // Position the dialog box at the bottom
+    alertBox.style.transform = 'translateX(-50%)'; // Center the dialog box
     alertBox.style.padding = '20px';
     alertBox.style.backgroundColor = 'purple';
     alertBox.style.color = 'white';
     alertBox.style.border = '1px solid black';
     alertBox.style.fontFamily = 'Times New Roman';
     document.body.appendChild(alertBox);
-    setTimeout(function() {
-        document.body.removeChild(alertBox);
-    }, 500); // The dialog box will close after 0.5 seconds
+    // Removed the setTimeout function to disable the self-closing functionality
 }
+
 
 
 function increaseSpeed() {
