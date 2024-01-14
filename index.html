@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Mr. Snake</title>
+    <title>Patel's Snake</title>
 </head>
 <body>
     <div class="container">
         <div id="game-board"></div>
-        <div class="score-column">
-            <h2>Score</h2>
-            <p id="score-display">0</p>
-        </div>
+        
     </div>
     
     <div id="game-over-modal" class="modal">
@@ -29,8 +26,11 @@
     <button class="arrow-button right">➡️</button>
   </div>
 <div style="display: flex; justify-content: space-between;">
-    <button id="restart-button" style="width: 50%; font-size: 20px; background-color: purple; color: white; font-family: 'Times New Roman';">Restart Game</button>
-    <button id="pause-button" style="width: 50%; font-size: 20px; background-color: purple; color: white; font-family: 'Times New Roman';">Pause Game</button>
+    <button id="restart-button" style="width: 50%;height: 10vh; font-size: 20px; background-color: purple; color: white; font-family: 'Times New Roman';">Restart Game</button>
+    <button id="pause-button" style="width: 50%;height: 10vh; font-size: 20px; background-color: purple; color: white; font-family: 'Times New Roman';">Pause Game</button>
+</div>
+<div id="score-container">
+    <h2><span id="score-display">0</span></h2>
 </div>
     <script src="script.js"></script>
 </body>
