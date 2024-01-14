@@ -37,7 +37,7 @@ scoreDisplay.id = 'score-display';
 gameBoard.appendChild(scoreDisplay);
 var score = 0;
 var gameOverModal = document.getElementById('game-over-modal');
-var speed = 170; // Initial speed
+var speed = 200; // Initial speed
 
 function resetGame() {
     snake = [{ top: 200, left: 200 }];
@@ -52,8 +52,28 @@ function resetGame() {
 }
 
 function updateScoreDisplay() {
-    scoreDisplay.textContent =snake.length;
+    scoreDisplay.textContent =score;
+if (score % 5 === 0 && score !== 0) {
+        alertScore();
+    }
 }
+function alertScore() {
+    var alertBox = document.createElement('div');
+    alertBox.textContent = 'Score: ' + score;
+    alertBox.style.position = 'fixed';
+    alertBox.style.left = '50%';
+    alertBox.style.top = '50%';
+    alertBox.style.padding = '20px';
+    alertBox.style.backgroundColor = 'purple';
+    alertBox.style.color = 'white';
+    alertBox.style.border = '1px solid black';
+    alertBox.style.fontFamily = 'Times New Roman';
+    document.body.appendChild(alertBox);
+    setTimeout(function() {
+        document.body.removeChild(alertBox);
+    }, 100); // The dialog box will close after 0.5 seconds
+}
+
 
 function increaseSpeed() {
     if (score > 0 && score % 10 === 0) {
@@ -103,8 +123,8 @@ function gameLoop() {
     return;
 }
     if (head.top == apple.top && head.left == apple.left) {
-        apple.top = Math.floor(Math.random() * 20) * 20;
-        apple.left = Math.floor(Math.random() * 20) * 20;
+        apple.top = Math.floor(Math.random() * gameBoard.offsetHeight/20) * 20;
+        apple.left = Math.floor(Math.random() * gameBoard.offsetWidth/20) * 20;
         score++;
         updateScoreDisplay();
         increaseSpeed(); // Check if speed should be increased
