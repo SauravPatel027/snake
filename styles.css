@@ -30,6 +30,8 @@ body {
 }
 
 .dot {
+    background: linear-gradient(90deg, #000 50%, #fff 50%);
+    background-size: 40px 20px;
     position: absolute;
     height: 20px;
     width: 20px;
